@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Favicon</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        #preview { width: 32px; height: 32px; background: black; display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+        #preview span { color: white; font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Create Favicon</h1>
+    <p>This will create a simple black and white X favicon:</p>
+    
+    <div id="preview">
+        <span>X</span>
+    </div>
+    
+    <button onclick="downloadFavicon()">Download favicon.ico</button>
+    
+    <script>
+    function downloadFavicon() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 32;
+        canvas.height = 32;
+        const ctx = canvas.getContext('2d');
+        
+        // Draw black background
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, 32, 32);
+        
+        // Draw white X
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 24px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('X', 16, 16);
+        
+        // Convert to ICO and download
+        const link = document.createElement('a');
+        link.download = 'favicon.ico';
+        link.href = canvas.toDataURL('image/x-icon');
+        link.click();
+    }
+    </script>
+    
+    <div style="margin-top: 30px; padding: 15px; background: #f5f5f5; border-radius: 5px;">
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Click the button above to download favicon.ico</li>
+            <li>Save the file to your <code>public</code> directory</li>
+            <li>Replace the existing favicon.ico file</li>
+            <li>Clear your browser cache (Ctrl+F5 or Cmd+Shift+R)</li>
+        </ol>
+    </div>
+</body>
+</html>
