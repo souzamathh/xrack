@@ -53,11 +53,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = "" }) =>
         'silver': "/lovable-uploads/5c131f44-e3f3-4a2f-8739-ecb95b4e6842.png",
         'graphite': "/lovable-uploads/3685848f-39f6-4bf5-926a-4120e4509509.png"
       },
-      // Travessas Uno Way
-      'uno-way': {
+      // Travessas Way
+      'way': {
         'black': "/lovable-uploads/a0d5274a-0299-457b-821a-4c1e90395898.png",
         'silver': "/lovable-uploads/a3369dab-60f9-44a7-9207-806ebb627bd2.png",
-        'graphite': "/lovable-uploads/1d7d92f0-2ea5-4828-a71e-67baf2c85dfc.png"
+        'graphite': "/lovable-uploads/uno-way-grafite-1.png"
       },
       // Bagageiro 307-2
       'gradeado-307-2-96x96-preto': {
@@ -81,7 +81,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = "" }) =>
   const currentImage = getImageByColor(product.id, selectedColor);
 
   return (
-    <div className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in h-full flex flex-col ${className}`}>
+    <div className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in h-[400px] flex flex-col ${className}`}>
       <Link to={`/produtos/${product.category}/${product.id}`}>
         <div className="h-32 sm:h-36 md:h-48 overflow-hidden flex items-center justify-center p-4">
           <img
@@ -104,7 +104,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = "" }) =>
           />
         </div>
         
-        <p className="text-gray-700 flex-1 text-sm md:text-base mb-2">{product.description}</p>
+        <p className="text-gray-700 text-sm md:text-base mb-2 line-clamp-3">{product.description}</p>
         
         {(product.category === 'bagageiros' && (product.size || product.dimensions)) && (
           <p className="text-gray-700 text-xs md:text-sm">
@@ -112,7 +112,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = "" }) =>
           </p>
         )}
         
-        <p className="text-xs md:text-sm text-gray-600 mt-2 font-semibold">Capacidade máxima: 45kg</p>
+        <div className="mt-auto">
+          <p className="text-xs md:text-sm text-gray-600 font-semibold">Capacidade máxima: 45kg</p>
+        </div>
       </div>
     </div>
   );

@@ -1,15 +1,14 @@
-
 import React from 'react';
 import { Shield, CloudLightning, Lock } from 'lucide-react';
 import { AnimateOnScroll } from '@/utils/ScrollAnimationObserver';
 
 const About = () => {
   return (
-    <section id="sobre" className="xrack-section">
+    <section id="sobre" className="py-16">
       <div className="xrack-container">
         <AnimateOnScroll animation="fade-up">
           <h2 className="section-title">Sobre a XRack</h2>
-          <div className="text-lg mb-12 max-w-4xl space-y-4">
+          <div className="text-lg mb-4 max-w-4xl space-y-4">
             <p>
               Há mais de 15 anos, a XRack transforma o transporte veicular no Brasil, oferecendo travessas, bagageiros e gradeados que unem resistência, funcionalidade e design inteligente. Somos uma das poucas empresas do país que fabricam travessas e ponteiras 100% em alumínio — um diferencial que garante leveza, durabilidade e acabamento superior.
             </p>
@@ -20,7 +19,7 @@ const About = () => {
               Sua estrada começa aqui. E com a gente, ela vai mais longe.
             </p>
           </div>
-        </AnimateOnScroll>    
+        </AnimateOnScroll>
       </div>
     </section>
   );

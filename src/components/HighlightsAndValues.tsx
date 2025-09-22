@@ -4,7 +4,7 @@ import { AnimateOnScroll } from '@/utils/ScrollAnimationObserver';
 
 const HighlightsAndValues = () => {
   return (
-    <section className="xrack-section bg-gray-50">
+    <section id="diferenciais" className="py-12 bg-gray-50">
       <div className="xrack-container">
 
         {/* Missão, Visão e Valores */}

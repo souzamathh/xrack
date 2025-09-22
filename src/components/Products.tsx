@@ -1,49 +1,50 @@
-
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProductCard from './ProductCard';
-import { useEffect, useRef } from "react";
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import MobileCarousel from './MobileCarousel';
 
 const travessas = [
   {
     id: "smart",
     name: "Smart",
     description: "Travessa Larga Rack de Teto Bagageiro XRack – Premium, segura e resistente.",
-    image: "/lovable-uploads/5f46fb45-b668-4467-9d06-a57830b4a821.png", // Atualizado: 1-Preto.png Smart
+    image: "/lovable-uploads/5f46fb45-b668-4467-9d06-a57830b4a821.png",
     category: "travessas"
   },
   {
     id: "style",
     name: "Style",
     description: "Travessa larga de teto, ponteiras e barras 100% alumínio.",
-    image: "/lovable-uploads/72bb23d4-4360-4264-b15e-c2b22fc09e46.png", // Atualizado: Nova imagem para Style (preto)
+    image: "/lovable-uploads/72bb23d4-4360-4264-b15e-c2b22fc09e46.png",
     category: "travessas"
   },
   {
     id: "slim",
     name: "Slim",
     description: "Travessas para máxima capacidade de carga, design avançado.",
-    image: "/lovable-uploads/1efb7664-9494-49ec-a7cc-878028d89ea6.png", // 1-Preto.png Slim
+    image: "/lovable-uploads/1efb7664-9494-49ec-a7cc-878028d89ea6.png",
     category: "travessas"
   },
   {
     id: "uno-way",
     name: "Uno Way",
     description: "Travessa exclusiva Uno Way. Mais espaço e versatilidade.",
-    image: "/lovable-uploads/a0d5274a-0299-457b-821a-4c1e90395898.png", // 1-Preto.png Uno Way
+    image: "/lovable-uploads/a0d5274a-0299-457b-821a-4c1e90395898.png",
     category: "travessas"
   },
   {
     id: "locker",
     name: "Locker",
     description: "Ponteiras em alumínio, mais reforço e segurança.",
-    image: "/lovable-uploads/7fbd5377-eedd-4a41-bbbe-5fd3b589ac3b.png", // 1-Preto.png Locker
+    image: "/lovable-uploads/7fbd5377-eedd-4a41-bbbe-5fd3b589ac3b.png",
     category: "travessas"
   },
   {
     id: "tubular",
     name: "Tubular",
     description: "Travessa tubular 100% alumínio, robustez e facilidade.",
-    image: "/lovable-uploads/a795707a-9f81-4016-bfd2-1d52225368ba.png", // 1-Preto.png Tubular
+    image: "/lovable-uploads/a795707a-9f81-4016-bfd2-1d52225368ba.png",
     category: "travessas"
   }
 ];
@@ -70,7 +71,7 @@ const bagageiros = [
     name: "Gradeado 307-2",
     size: "96 × 96 cm",
     description: "Novo gradeado universal. Resistente e durável. 45kg.",
-    image: "/lovable-uploads/bc8a9f53-598f-443e-a034-446bcf3eafa6.png", // Nova imagem do Gradeado 307-2
+    image: "/lovable-uploads/bc8a9f53-598f-443e-a034-446bcf3eafa6.png",
     category: "bagageiros",
   },
   {
@@ -78,7 +79,7 @@ const bagageiros = [
     name: "Gradeado P",
     size: "97 × 81 × 17 cm",
     description: "Bagageiro compacto para veículos pequenos. 45kg.",
-    image: "/lovable-uploads/41811073-f47b-44b0-9bae-b53e99916982.png", // Nova imagem do Gradeado P
+    image: "/lovable-uploads/41811073-f47b-44b0-9bae-b53e99916982.png",
     category: "bagageiros",
   },
   {
@@ -102,7 +103,7 @@ const bagageiros = [
     name: "Gradeado GG",
     size: "120 × 100 × 11 cm",
     description: "Bagageiro extra grande para frota pesadas.",
-    image: "/lovable-uploads/62c39066-709b-4a70-9321-6144f422f6f4.png", // Nova imagem para Gradeado GG
+    image: "/lovable-uploads/62c39066-709b-4a70-9321-6144f422f6f4.png",
     category: "bagageiros",
   },
   {
@@ -110,7 +111,7 @@ const bagageiros = [
     name: "Gradeado XG",
     size: "150 × 100 × 11 cm",
     description: "Capacidade máxima para as maiores demandas.",
-    image: "/lovable-uploads/62c39066-709b-4a70-9321-6144f422f6f4.png", // Nova imagem para Gradeado XG
+    image: "/lovable-uploads/62c39066-709b-4a70-9321-6144f422f6f4.png",
     category: "bagageiros",
   },
   {
@@ -171,147 +172,163 @@ const bagageiros = [
   }
 ];
 
-// Horizontal scroll with auto-scroll and manual drag
-const useHorizontalScroll = (ref: React.RefObject<HTMLDivElement>) => {
-  useEffect(() => {
-    const scrollContainer = ref.current;
-    if (!scrollContainer) return;
+interface InfiniteCarouselProps {
+  products: any[];
+  title: string;
+}
 
-    let isScrolling = false;
-    const speedPxPerSecond = 50; // Velocidade otimizada para fluidez
-    let animationFrame: number;
-    let lastTime = performance.now();
-
-    const scroll = (time: number) => {
-      const dt = Math.min((time - lastTime) / 1000, 0.016); // 60fps cap
-      lastTime = time;
-
-      if (!isScrolling && scrollContainer) {
-        scrollContainer.scrollLeft += speedPxPerSecond * dt;
-        
-        // Reset scroll when reaching the end with smoother transition
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-          scrollContainer.scrollLeft = 0;
-        }
-      }
-      animationFrame = requestAnimationFrame(scroll);
-    };
-
-    // Start auto-scroll
-    animationFrame = requestAnimationFrame(scroll);
-
-    // Pause on mouse enter, resume on mouse leave
-    const handleMouseEnter = () => { isScrolling = true; };
-    const handleMouseLeave = () => { isScrolling = false; };
-
-    // Handle manual scroll
-    let scrollTimeout: NodeJS.Timeout;
-    const handleScroll = () => {
-      isScrolling = true;
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-      }, 2000);
-    };
-
-    scrollContainer.addEventListener('mouseenter', handleMouseEnter);
-    scrollContainer.addEventListener('mouseleave', handleMouseLeave);
-    scrollContainer.addEventListener('scroll', handleScroll);
-
-    // Enable manual dragging
-    let isDown = false;
-    let startX = 0;
-    let startScrollLeft = 0;
-
-    const handleMouseDown = (e: MouseEvent) => {
-      isDown = true;
-      isScrolling = true;
-      startX = e.pageX - scrollContainer.offsetLeft;
-      startScrollLeft = scrollContainer.scrollLeft;
-      scrollContainer.style.cursor = 'grabbing';
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - scrollContainer.offsetLeft;
-      const walk = (x - startX) * 2;
-      scrollContainer.scrollLeft = startScrollLeft - walk;
-    };
-
-    const endDrag = () => {
-      isDown = false;
-      isScrolling = false;
-      scrollContainer.style.cursor = 'grab';
-    };
-
-    scrollContainer.addEventListener('mousedown', handleMouseDown);
-    scrollContainer.addEventListener('mousemove', handleMouseMove);
-    scrollContainer.addEventListener('mouseup', endDrag);
-    scrollContainer.addEventListener('mouseleave', endDrag);
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      if (scrollContainer) {
-        scrollContainer.removeEventListener('mouseenter', handleMouseEnter);
-        scrollContainer.removeEventListener('mouseleave', handleMouseLeave);
-        scrollContainer.removeEventListener('scroll', handleScroll);
-        scrollContainer.removeEventListener('mousedown', handleMouseDown);
-        scrollContainer.removeEventListener('mousemove', handleMouseMove);
-        scrollContainer.removeEventListener('mouseup', endDrag);
-        scrollContainer.removeEventListener('mouseleave', endDrag);
-      }
-    };
-  }, [ref]);
-};
-
-const Products = () => {
-  const travessasScrollRef = useRef<HTMLDivElement>(null);
-  const bagageirosScrollRef = useRef<HTMLDivElement>(null);
+const InfiniteProductCarousel = ({ products, title }: InfiniteCarouselProps) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
   
-  useHorizontalScroll(travessasScrollRef);
-  useHorizontalScroll(bagageirosScrollRef);
+  // Duplicate products for infinite scroll
+  const infiniteProducts = [...products, ...products];
 
-  const renderHorizontalScroll = (products: any[], scrollRef: React.RefObject<HTMLDivElement>) => {
-    // Duplicate products for infinite scroll effect
-    const duplicatedProducts = [...products, ...products];
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
     
-    return (
-      <div 
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-hidden pb-4 cursor-grab scrollbar-hide"
-        style={{ 
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none'
-        }}
-      >
-        {duplicatedProducts.map((product, index) => (
-          <div key={`${product.id}-${index}`} className="flex-shrink-0 w-80">
-            <ProductCard product={product} />
-          </div>
-        ))}
-      </div>
-    );
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Auto-scroll functionality - moves items to the right every 4 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const itemsToMove = isMobile ? 1 : 3;
+        const nextIndex = prev + itemsToMove;
+        // Reset smoothly when reaching the end
+        if (nextIndex >= products.length) {
+          setTimeout(() => setCurrentIndex(0), 50);
+          return products.length - itemsToMove;
+        }
+        return nextIndex;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [products.length, isPaused, isMobile]);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => {
+      const itemsToMove = isMobile ? 1 : 3;
+      const nextIndex = prev + itemsToMove;
+      if (nextIndex >= products.length) {
+        return 0;
+      }
+      return nextIndex;
+    });
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => {
+      const itemsToMove = isMobile ? 1 : 3;
+      const prevIndex = prev - itemsToMove;
+      if (prevIndex < 0) {
+        return Math.max(0, products.length - itemsToMove);
+      }
+      return prevIndex;
+    });
   };
 
   return (
+    <div className="mb-20">
+      <h2 className="section-title">{title}</h2>
+      <p className="text-lg mb-12 max-w-4xl">
+        {title === "Travessas" 
+          ? "Produtos de alta qualidade desenvolvidos para atender às diversas necessidades do mercado B2B."
+          : "Opções versáteis para diferentes tipos de veículos e necessidades de carga."
+        }
+      </p>
+
+      <div 
+        className="relative"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110"
+        >
+          <ChevronLeft size={isMobile ? 20 : 24} className="text-xrack-red" />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110"
+        >
+          <ChevronRight size={isMobile ? 20 : 24} className="text-xrack-red" />
+        </button>
+
+        {/* Products Container */}
+        <div className="overflow-hidden mx-4 md:mx-12">
+          <div 
+            ref={carouselRef}
+            className="flex transition-transform duration-1000 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / (isMobile ? 1 : 3))}%)`,
+            }}
+          >
+            {infiniteProducts.map((product, index) => {
+              // Show partial next card for visual effect on desktop, not on mobile
+              const isPartiallyVisible = !isMobile && index === currentIndex + 3;
+              
+              return (
+                <div 
+                  key={`${product.id}-${index}`} 
+                  className={`flex-shrink-0 px-2 md:px-3 ${
+                    isMobile 
+                      ? 'w-full' 
+                      : isPartiallyVisible 
+                        ? 'w-1/6' 
+                        : 'w-1/3'
+                  } relative`}
+                >
+                  {isPartiallyVisible && (
+                    <div className="absolute inset-0 bg-gradient-to-l from-white via-white/70 to-transparent z-10 pointer-events-none" />
+                  )}
+                  <ProductCard product={product} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Products = () => {
+  return (
     <section id="produtos" className="xrack-section bg-gray-100">
       <div className="xrack-container">
-        <h2 className="section-title">Travessas</h2>
-        <p className="text-lg mb-12 max-w-4xl">
-          Produtos de alta qualidade desenvolvidos para atender às diversas necessidades do mercado B2B.
-        </p>
+        <InfiniteProductCarousel products={travessas} title="Travessas" />
 
-        {renderHorizontalScroll(travessas, travessasScrollRef)}
-
-        <div className="mt-20">
-          <h2 className="section-title">Bagageiros</h2>
-          <p className="text-lg mb-12 max-w-4xl">
-            Opções versáteis para diferentes tipos de veículos e necessidades de carga.
+        {/* Compatibility Check Button */}
+        <div className="text-center mb-20">
+          <Link 
+            to="/verificar-compatibilidade"
+            className="inline-flex items-center bg-xrack-red text-white px-6 md:px-8 py-3 md:py-4 rounded-lg hover:bg-red-700 transition-colors text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+          >
+            <Search size={20} className="mr-3" />
+            Verificar Compatibilidade
+          </Link>
+          <p className="text-gray-600 mt-3 text-xs md:text-sm">
+            Encontre o produto ideal para seu veículo
           </p>
-
-          {renderHorizontalScroll(bagageiros, bagageirosScrollRef)}
         </div>
+
+        <InfiniteProductCarousel products={bagageiros} title="Bagageiros" />
       </div>
     </section>
   );

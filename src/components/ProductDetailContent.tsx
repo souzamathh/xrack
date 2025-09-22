@@ -9,7 +9,7 @@ import {
   ArrowRight,
   ChevronRight
 } from 'lucide-react';
-import VehicleCompatibilityChecker from './VehicleCompatibilityChecker';
+import ProductCompatibilityChecker from './ProductCompatibilityChecker';
 
 interface ProductDetailContentProps {
   category?: string;
@@ -25,6 +25,7 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
   const isSlimProduct = productCategory === 'travessas' && productId === 'slim';
   const isLockerProduct = productCategory === 'travessas' && productId === 'locker';
   const isTubularProduct = productCategory === 'travessas' && productId === 'tubular';
+  const isWayProduct = productCategory === 'travessas' && productId === 'uno-way';
 
   const [selectedColor, setSelectedColor] = useState('black');
   const [selectedSize, setSelectedSize] = useState(productId === 'gradeado-539-96x90-preto' ? '96x90' : '127x96');
@@ -908,14 +909,15 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
         </nav>
       </div>
       
-      {productCategory === 'travessas' && (isSmartProduct || isStyleProduct || isSlimProduct || isLockerProduct || isTubularProduct) && (
-        <VehicleCompatibilityChecker 
+      {productCategory === 'travessas' && (isSmartProduct || isStyleProduct || isSlimProduct || isLockerProduct || isTubularProduct || isWayProduct) && (
+        <ProductCompatibilityChecker 
           productType={
             isSmartProduct ? 'smart' : 
             isStyleProduct ? 'style' : 
             isSlimProduct ? 'slim' :
             isLockerProduct ? 'locker' :
-            isTubularProduct ? 'tubular' : 'smart' // fallback to smart if none match
+            isTubularProduct ? 'tubular' :
+            isWayProduct ? 'way' : 'smart'
           }
         />
       )}

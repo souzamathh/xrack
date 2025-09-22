@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Search } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   NavigationMenu,
   NavigationMenuContent,
@@ -10,14 +10,28 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { smoothScrollTo } from '@/utils/smoothScroll';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   
-  // Check if we're on a product detail page
+  // Check if we're on a product detail page or compatibility checker page
   const isProductDetailPage = location.pathname.includes('/produtos/');
+  const isCompatibilityPage = location.pathname.includes('/verificar-compatibilidade');
+
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname === '/') {
+      // Already on home, just scroll to section
+      smoothScrollTo(sectionId);
+    } else {
+      // Navigate to home and then scroll to section
+      navigate('/');
+      setTimeout(() => smoothScrollTo(sectionId), 100);
+    }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev);
@@ -59,15 +73,15 @@ const Header = () => {
   const headerClasses = cn(
     "py-4 z-50 w-full transition-all duration-500 fixed", 
     scrolled 
-      ? isProductDetailPage 
+      ? (isProductDetailPage || isCompatibilityPage)
         ? "bg-white/75 backdrop-blur-md shadow-lg top-0 animate-slide-down max-w-6xl mx-auto left-0 right-0 rounded-full mt-4" 
         : "bg-black/75 backdrop-blur-md shadow-lg top-0 animate-slide-down max-w-6xl mx-auto left-0 right-0 rounded-full mt-4" 
       : "bg-transparent top-0"
   );
 
   // Text color based on page type and scroll state
-  const textColor = isProductDetailPage ? "text-black" : "text-white";
-  const hoverColor = isProductDetailPage ? "hover:text-gray-700" : "hover:text-xrack-red";
+  const textColor = (isProductDetailPage || isCompatibilityPage) ? "text-black" : "text-white";
+  const hoverColor = (isProductDetailPage || isCompatibilityPage) ? "hover:text-gray-700" : "hover:text-xrack-red";
 
   return (
     <>
@@ -85,6 +99,7 @@ const Header = () => {
           
           <nav className="hidden md:flex items-center space-x-6">
             <Link to="/" className={`${textColor} ${hoverColor} transition-colors`}>Home</Link>
+            
             
             <NavigationMenu>
               <NavigationMenuList>
@@ -134,11 +149,18 @@ const Header = () => {
               </NavigationMenuList>
             </NavigationMenu>
             
-            <a href="#sobre" className={`${textColor} ${hoverColor} transition-colors`}>Sobre</a>
-            <a href="#diferenciais" className={`${textColor} ${hoverColor} transition-colors`}>Diferenciais</a>
-            <a href="#depoimentos" className={`${textColor} ${hoverColor} transition-colors`}>Depoimentos</a>
-            <a href="#parceiros" className={`${textColor} ${hoverColor} transition-colors`}>Programa B2B</a>
-            <a href="#contato" className={`${textColor} ${hoverColor} transition-colors`}>Contato</a>
+            <button onClick={() => handleNavClick('sobre')} className={`${textColor} ${hoverColor} transition-colors`}>Sobre</button>
+            <button onClick={() => handleNavClick('diferenciais')} className={`${textColor} ${hoverColor} transition-colors`}>Diferenciais</button>
+            <button onClick={() => handleNavClick('depoimentos')} className={`${textColor} ${hoverColor} transition-colors`}>Depoimentos</button>
+            <button onClick={() => handleNavClick('parceiros')} className={`${textColor} ${hoverColor} transition-colors`}>Programa B2B</button>
+            <button onClick={() => handleNavClick('contato')} className={`${textColor} ${hoverColor} transition-colors`}>Contato</button>
+            <Link 
+              to="/verificar-compatibilidade" 
+              className="btn-xrack glow-xrack-red text-sm px-4 py-2 rounded-md inline-flex items-center"
+            >
+              <Search size={16} className="mr-2" />
+              Verificar Compatibilidade
+            </Link>
           </nav>
           
           <div className="md:hidden">
@@ -166,12 +188,16 @@ const Header = () => {
           
           <div className="flex flex-col items-center space-y-8 py-24 px-6 text-center" onClick={(e) => e.stopPropagation()}>
             <Link to="/" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Home</Link>
+            <Link to="/verificar-compatibilidade" className="text-white text-xl hover:text-xrack-red transition-colors flex items-center" onClick={closeMenu}>
+              <Search size={20} className="mr-2" />
+              Verificar Compatibilidade
+            </Link>
             <Link to="/categorias" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Categorias</Link>
-            <a href="#sobre" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Sobre</a>
-            <a href="#diferenciais" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Diferenciais</a>
-            <a href="#depoimentos" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Depoimentos</a>
-            <a href="#parceiros" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Programa B2B</a>
-            <a href="#contato" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Contato</a>
+            <button onClick={() => { handleNavClick('sobre'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Sobre</button>
+            <button onClick={() => { handleNavClick('diferenciais'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Diferenciais</button>
+            <button onClick={() => { handleNavClick('depoimentos'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Depoimentos</button>
+            <button onClick={() => { handleNavClick('parceiros'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Programa B2B</button>
+            <button onClick={() => { handleNavClick('contato'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Contato</button>
             <a 
               href="https://wa.me/5511910201100" 
               target="_blank" 

@@ -360,4 +360,14 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* Red glow animation for CTA */
+  @keyframes xrack-glow-red {
+    0% { box-shadow: 0 0 0 0 hsl(var(--xrack-red) / 0.0), 0 0 0 0 hsl(var(--xrack-red) / 0.0); }
+    50% { box-shadow: 0 0 30px 4px hsl(var(--xrack-red) / 0.35), 0 0 12px 2px hsl(var(--xrack-red) / 0.5); }
+    100% { box-shadow: 0 0 0 0 hsl(var(--xrack-red) / 0.0), 0 0 0 0 hsl(var(--xrack-red) / 0.0); }
+  }
+  .glow-xrack-red {
+    animation: xrack-glow-red 2.2s ease-in-out infinite;
+  }
 }
