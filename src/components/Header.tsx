@@ -91,7 +91,7 @@ const Header = () => {
           scrolled ? "px-4 md:px-8" : "px-4 md:px-8"
         )}>
           <div className={cn(
-            scrolled ? "flex items-center justify-between" : "grid grid-cols-[auto_1fr_auto] items-center gap-6"
+            scrolled ? "flex items-center justify-between" : "grid grid-cols-[auto_1fr_auto] items-center"
           )}>
             {/* Left: Logo */}
             <div className="flex items-center">
@@ -176,7 +176,10 @@ const Header = () => {
               </Link>
               <button 
                 onClick={toggleMenu} 
-                className={`${textColor} z-50 relative lg:hidden`}
+                className={cn(
+                  `${textColor} z-50 relative lg:hidden`,
+                  !scrolled && "mr-2"
+                )}
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

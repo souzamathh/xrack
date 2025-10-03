@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Search, Car, CheckCircle, XCircle } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import { useIsMobile } from '@/hooks/use-mobile';
 import {
   Select,
   SelectContent,
@@ -126,6 +127,8 @@ const CompatibilityChecker = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [availableModels, setAvailableModels] = useState<string[]>([]);
   const [availableYears, setAvailableYears] = useState<number[]>([]);
+  const resultsRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
 
   // Usar os dados unificados
   const carBrands = getUnifiedUniqueBrands();
@@ -178,6 +181,20 @@ const CompatibilityChecker = () => {
       setIsSearching(false);
     }, 800);
   };
+
+  // Scroll to results after they're rendered (mobile/tablet only)
+  useEffect(() => {
+    if (hasSearched && isMobile && resultsRef.current) {
+      setTimeout(() => {
+        const yOffset = -100; // Account for header
+        const element = resultsRef.current;
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 200);
+    }
+  }, [hasSearched, isMobile]);
 
   return (
     <>
@@ -297,7 +314,7 @@ const CompatibilityChecker = () => {
 
           {/* Search Results */}
           {hasSearched && (
-            <section className="py-16">
+            <section ref={resultsRef} className="py-16">
               <div className="xrack-container px-4 md:px-4">
                 {searchResults.length > 0 ? (
                   <>
