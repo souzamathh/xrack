@@ -179,18 +179,22 @@ const CompatibilityChecker = () => {
       setSearchResults(compatibleProducts);
       setHasSearched(true);
       setIsSearching(false);
-      
-      // Scroll to results on mobile
-      if (isMobile && resultsRef.current) {
-        setTimeout(() => {
-          resultsRef.current?.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'start' 
-          });
-        }, 100);
-      }
     }, 800);
   };
+
+  // Scroll to results after they're rendered (mobile/tablet only)
+  useEffect(() => {
+    if (hasSearched && isMobile && resultsRef.current) {
+      setTimeout(() => {
+        const yOffset = -100; // Account for header
+        const element = resultsRef.current;
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 200);
+    }
+  }, [hasSearched, isMobile]);
 
   return (
     <>
