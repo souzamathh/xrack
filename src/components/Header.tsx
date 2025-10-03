@@ -176,7 +176,10 @@ const Header = () => {
               </Link>
               <button 
                 onClick={toggleMenu} 
-                className={`${textColor} z-50 relative lg:hidden`}
+                className={cn(
+                  `${textColor} z-50 relative lg:hidden`,
+                  scrolled && "mr-2"
+                )}
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
