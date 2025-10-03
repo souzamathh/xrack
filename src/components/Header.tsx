@@ -91,7 +91,7 @@ const Header = () => {
           scrolled ? "px-4 md:px-8" : "px-4 md:px-8"
         )}>
           <div className={cn(
-            scrolled ? "flex items-center justify-between" : "grid grid-cols-[auto_1fr_auto] items-center gap-6"
+            scrolled ? "flex items-center justify-between" : "grid grid-cols-[auto_1fr_auto] items-center"
           )}>
             {/* Left: Logo */}
             <div className="flex items-center">
