@@ -342,9 +342,8 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
           ];
         case 'graphite':
           return [
-            "/lovable-uploads/1d7d92f0-2ea5-4828-a71e-67baf2c85dfc.png", // 1-Grafite
-            "/lovable-uploads/1d7d92f0-2ea5-4828-a71e-67baf2c85dfc.png", // 1-Grafite (repetido como placeholder)
-            "/lovable-uploads/1d7d92f0-2ea5-4828-a71e-67baf2c85dfc.png"  // 1-Grafite (repetido como placeholder)
+            "/lovable-uploads/uno-way-grafite-1.png", // Capa Grafite
+            "/lovable-uploads/uno-way-grafite-2.png"  // Auxiliar Grafite
           ];
         default:
           return [
@@ -872,7 +871,7 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
   };
 
   return (
-    <div className="xrack-container px-4 py-24">
+    <div className="xrack-container px-4 md:px-4 py-24">
       <div className="mb-8">
         <nav className="flex mb-4" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">

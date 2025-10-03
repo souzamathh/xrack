@@ -109,6 +109,13 @@ const Testimonials = () => {
           }}
           className="w-full"
         >
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold">Depoimentos</h3>
+            <div className="flex space-x-2">
+              <CarouselPrevious className="relative inset-0 translate-y-0 h-8 w-8" />
+              <CarouselNext className="relative inset-0 translate-y-0 h-8 w-8" />
+            </div>
+          </div>
           <CarouselContent className="-ml-2 md:-ml-4">
             {testimonials.map((testimonial) => (
               <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 basis-full">
@@ -158,7 +165,7 @@ const Testimonials = () => {
 
   return (
     <section id="depoimentos" className="xrack-section bg-gray-100">
-      <div className="xrack-container">
+      <div className="xrack-container px-4 md:px-8">
         <h2 className="section-title">Depoimentos & Casos de Sucesso</h2>
         <p className="text-lg mb-12 max-w-4xl">
           Veja o que nossos clientes B2B estão dizendo sobre nossas soluções.

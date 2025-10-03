@@ -177,20 +177,20 @@ const ProductCompatibilityChecker: React.FC<ProductCompatibilityCheckerProps> = 
         alt: 'Travessa Tubular XRack'
       },
       'Way': {
-        href: '/produtos/travessas/way',
+        href: '/produtos/travessas/uno-way',
         img: '/lovable-uploads/a0d5274a-0299-457b-821a-4c1e90395898.png',
-        alt: 'Travessa Way XRack'
+        alt: 'Travessa Uno Way XRack'
       }
     };
     return productMap[productName] || { href: '#', img: '/lovable-uploads/048ff5e8-8601-4c9c-885d-aa8123d93e1a.png', alt: `Travessa ${productName}` };
   };
   return (
-    <div className="bg-gray-50 rounded-lg p-6 mb-10">
-      <h2 className="text-xl font-bold mb-4 flex items-center">
+    <div className="bg-gray-50 rounded-lg p-4 sm:p-6 mb-10">
+      <h2 className="text-lg sm:text-xl font-bold mb-4 flex items-center">
         <Car className="mr-2 text-xrack-red" />
         Verifique a compatibilidade
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
         <div>
           <label htmlFor="carBrand" className="block text-sm font-medium mb-2">
             Marca
@@ -284,12 +284,12 @@ const ProductCompatibilityChecker: React.FC<ProductCompatibilityCheckerProps> = 
                           <Link 
                             key={product}
                             to={meta.href}
-                            className="inline-flex items-center bg-green-100 text-green-800 px-3 py-2 rounded-md hover:bg-green-200 transition-colors mr-2 mb-2"
+                            className="inline-flex items-center bg-green-100 text-green-800 px-2 sm:px-3 py-2 rounded-md hover:bg-green-200 transition-colors mr-2 mb-2 text-sm"
                           >
                             <img
                               src={meta.img}
                               alt={meta.alt}
-                              className="w-8 h-8 object-contain mr-2 rounded-sm"
+                              className="w-6 h-6 sm:w-8 sm:h-8 object-contain mr-1 sm:mr-2 rounded-sm"
                               loading="lazy"
                             />
                             Travessa {product}

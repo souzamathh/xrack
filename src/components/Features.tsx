@@ -5,7 +5,7 @@ import { CheckCircle, Wind, ShieldCheck, FileCheck } from 'lucide-react';
 const Features = () => {
   return (
     <section id="diferenciais" className="xrack-section">
-      <div className="xrack-container">
+      <div className="xrack-container px-4 md:px-8">
         <h2 className="section-title">Diferenciais Técnicos</h2>
         <p className="text-lg mb-12 max-w-4xl">
           Soluções pensadas para atender às necessidades específicas de nossos clientes empresariais.

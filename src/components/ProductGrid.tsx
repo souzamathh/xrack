@@ -282,7 +282,7 @@ const ProductGrid = ({ showAll = false }: ProductGridProps) => {
     if (showAll) {
       // Grid tradicional para página de categorias
       return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -304,7 +304,7 @@ const ProductGrid = ({ showAll = false }: ProductGridProps) => {
           }}
         >
           {duplicatedProducts.map((product, index) => (
-            <div key={`${product.id}-${index}`} className="flex-shrink-0 w-80">
+            <div key={`${product.id}-${index}`} className="flex-shrink-0 w-72 sm:w-80">
               <ProductCard product={product} />
             </div>
           ))}
@@ -317,7 +317,7 @@ const ProductGrid = ({ showAll = false }: ProductGridProps) => {
 
   return (
     <section className="xrack-section bg-gray-100">
-      <div className="xrack-container">
+      <div className="xrack-container px-4 md:px-4">
         <h2 className="section-title mb-12">Categorias de Produtos</h2>
 
         <div className="mb-16">

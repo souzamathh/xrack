@@ -20,7 +20,7 @@ const Categories = () => (
       <Header />
       <main className="flex-grow">
         <section className="bg-black text-white py-16 pt-24 md:pt-32">
-          <div className="xrack-container px-4 text-center">
+          <div className="xrack-container px-4 md:px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Categorias de Produtos</h1>
             <p className="text-xl max-w-2xl mx-auto">
               Soluções completas em travessas de alumínio e bagageiros gradeados para sua frota

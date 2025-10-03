@@ -6,6 +6,20 @@ import MobileCarousel from './MobileCarousel';
 
 const travessas = [
   {
+    id: "locker",
+    name: "Locker",
+    description: "Ponteiras em alumínio, mais reforço e segurança.",
+    image: "/lovable-uploads/7fbd5377-eedd-4a41-bbbe-5fd3b589ac3b.png",
+    category: "travessas"
+  },
+  {
+    id: "slim",
+    name: "Slim",
+    description: "Travessas para máxima capacidade de carga, design avançado.",
+    image: "/lovable-uploads/1efb7664-9494-49ec-a7cc-878028d89ea6.png",
+    category: "travessas"
+  },
+  {
     id: "smart",
     name: "Smart",
     description: "Travessa Larga Rack de Teto Bagageiro XRack – Premium, segura e resistente.",
@@ -20,10 +34,10 @@ const travessas = [
     category: "travessas"
   },
   {
-    id: "slim",
-    name: "Slim",
-    description: "Travessas para máxima capacidade de carga, design avançado.",
-    image: "/lovable-uploads/1efb7664-9494-49ec-a7cc-878028d89ea6.png",
+    id: "tubular",
+    name: "Tubular",
+    description: "Travessa tubular 100% alumínio, robustez e facilidade.",
+    image: "/lovable-uploads/a795707a-9f81-4016-bfd2-1d52225368ba.png",
     category: "travessas"
   },
   {
@@ -32,30 +46,16 @@ const travessas = [
     description: "Travessa exclusiva Uno Way. Mais espaço e versatilidade.",
     image: "/lovable-uploads/a0d5274a-0299-457b-821a-4c1e90395898.png",
     category: "travessas"
-  },
-  {
-    id: "locker",
-    name: "Locker",
-    description: "Ponteiras em alumínio, mais reforço e segurança.",
-    image: "/lovable-uploads/7fbd5377-eedd-4a41-bbbe-5fd3b589ac3b.png",
-    category: "travessas"
-  },
-  {
-    id: "tubular",
-    name: "Tubular",
-    description: "Travessa tubular 100% alumínio, robustez e facilidade.",
-    image: "/lovable-uploads/a795707a-9f81-4016-bfd2-1d52225368ba.png",
-    category: "travessas"
   }
 ];
 
 const bagageiros = [
   {
-    id: "gradeado-501-3-110x90-preto",
-    name: "Gradeado 501-3",
-    size: "140 x 100 cm",
-    description: "Gradeado 501-3 com formato retangular, ideal para bagageiros de médio porte. Construção robusta e acabamento premium.",
-    image: "/lovable-uploads/ea232286-bc3d-4d17-aaf3-ef3c5f08a4e1.png",
+    id: "gradeado-307-2-96x96-preto",
+    name: "Gradeado 307-2",
+    size: "96 × 96 cm",
+    description: "Novo gradeado universal. Resistente e durável. 45kg.",
+    image: "/lovable-uploads/bc8a9f53-598f-443e-a034-446bcf3eafa6.png",
     category: "bagageiros",
   },
   {
@@ -67,51 +67,11 @@ const bagageiros = [
     category: "bagageiros",
   },
   {
-    id: "gradeado-307-2-96x96-preto",
-    name: "Gradeado 307-2",
-    size: "96 × 96 cm",
-    description: "Novo gradeado universal. Resistente e durável. 45kg.",
-    image: "/lovable-uploads/bc8a9f53-598f-443e-a034-446bcf3eafa6.png",
-    category: "bagageiros",
-  },
-  {
-    id: "gradeado-p",
-    name: "Gradeado P",
-    size: "97 × 81 × 17 cm",
-    description: "Bagageiro compacto para veículos pequenos. 45kg.",
-    image: "/lovable-uploads/41811073-f47b-44b0-9bae-b53e99916982.png",
-    category: "bagageiros",
-  },
-  {
-    id: "gradeado-m",
-    name: "Gradeado M",
-    size: "100 × 80 × 12 cm",
-    description: "Frota urbana: robustez, leveza e fácil instalação.",
-    image: "/lovable-uploads/9badf46e-b01f-4925-a5d0-fc1019a54998.png",
-    category: "bagageiros",
-  },
-  {
-    id: "gradeado-g",
-    name: "Gradeado G",
-    size: "110 × 90 × 11 cm",
-    description: "Para SUVs e cargas grandes. Segurança garantida.",
-    image: "/lovable-uploads/9badf46e-b01f-4925-a5d0-fc1019a54998.png",
-    category: "bagageiros",
-  },
-  {
-    id: "gradeado-gg",
-    name: "Gradeado GG",
-    size: "120 × 100 × 11 cm",
-    description: "Bagageiro extra grande para frota pesadas.",
-    image: "/lovable-uploads/62c39066-709b-4a70-9321-6144f422f6f4.png",
-    category: "bagageiros",
-  },
-  {
-    id: "gradeado-xg",
-    name: "Gradeado XG",
-    size: "150 × 100 × 11 cm",
-    description: "Capacidade máxima para as maiores demandas.",
-    image: "/lovable-uploads/62c39066-709b-4a70-9321-6144f422f6f4.png",
+    id: "gradeado-501-3-110x90-preto",
+    name: "Gradeado 501-3",
+    size: "140 x 100 cm",
+    description: "Gradeado 501-3 com formato retangular, ideal para bagageiros de médio porte. Construção robusta e acabamento premium.",
+    image: "/lovable-uploads/ea232286-bc3d-4d17-aaf3-ef3c5f08a4e1.png",
     category: "bagageiros",
   },
   {
@@ -169,6 +129,46 @@ const bagageiros = [
     description: "Gradeado D-59 premium com design aerodinâmico e construção robusta. Ideal para transporte seguro de cargas com máxima durabilidade.",
     image: "/lovable-uploads/559fe3ed-c74d-4558-98ad-a1ff818c9f81.png",
     category: "bagageiros",
+  },
+  {
+    id: "gradeado-g",
+    name: "Gradeado G",
+    size: "110 × 90 × 11 cm",
+    description: "Para SUVs e cargas grandes. Segurança garantida.",
+    image: "/lovable-uploads/9badf46e-b01f-4925-a5d0-fc1019a54998.png",
+    category: "bagageiros",
+  },
+  {
+    id: "gradeado-gg",
+    name: "Gradeado GG",
+    size: "120 × 100 × 11 cm",
+    description: "Bagageiro extra grande para frota pesadas.",
+    image: "/lovable-uploads/62c39066-709b-4a70-9321-6144f422f6f4.png",
+    category: "bagageiros",
+  },
+  {
+    id: "gradeado-m",
+    name: "Gradeado M",
+    size: "100 × 80 × 12 cm",
+    description: "Frota urbana: robustez, leveza e fácil instalação.",
+    image: "/lovable-uploads/9badf46e-b01f-4925-a5d0-fc1019a54998.png",
+    category: "bagageiros",
+  },
+  {
+    id: "gradeado-p",
+    name: "Gradeado P",
+    size: "97 × 81 × 17 cm",
+    description: "Bagageiro compacto para veículos pequenos. 45kg.",
+    image: "/lovable-uploads/41811073-f47b-44b0-9bae-b53e99916982.png",
+    category: "bagageiros",
+  },
+  {
+    id: "gradeado-xg",
+    name: "Gradeado XG",
+    size: "150 × 100 × 11 cm",
+    description: "Capacidade máxima para as maiores demandas.",
+    image: "/lovable-uploads/62c39066-709b-4a70-9321-6144f422f6f4.png",
+    category: "bagageiros",
   }
 ];
 
@@ -181,6 +181,7 @@ const InfiniteProductCarousel = ({ products, title }: InfiniteCarouselProps) => 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [perView, setPerView] = useState(3);
   const carouselRef = useRef<HTMLDivElement>(null);
   
   // Duplicate products for infinite scroll
@@ -271,7 +272,7 @@ const InfiniteProductCarousel = ({ products, title }: InfiniteCarouselProps) => 
         </button>
 
         {/* Products Container */}
-        <div className="overflow-hidden mx-4 md:mx-12">
+        <div className="overflow-hidden mx-6 md:mx-12">
           <div 
             ref={carouselRef}
             className="flex transition-transform duration-1000 ease-in-out"
@@ -311,7 +312,7 @@ const InfiniteProductCarousel = ({ products, title }: InfiniteCarouselProps) => 
 const Products = () => {
   return (
     <section id="produtos" className="xrack-section bg-gray-100">
-      <div className="xrack-container">
+      <div className="xrack-container px-4 md:px-8">
         <InfiniteProductCarousel products={travessas} title="Travessas" />
 
         {/* Compatibility Check Button */}

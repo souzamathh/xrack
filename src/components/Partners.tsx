@@ -6,7 +6,7 @@ import { AnimateOnScroll } from '@/utils/ScrollAnimationObserver';
 const Partners = () => {
   return (
     <section id="parceiros" className="xrack-section">
-      <div className="xrack-container">
+      <div className="xrack-container px-4 md:px-8">
         <AnimateOnScroll animation="fade-up">
           <h2 className="section-title">Programa B2B</h2>
           <p className="text-lg mb-12 max-w-4xl">

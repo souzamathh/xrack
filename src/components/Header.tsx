@@ -86,91 +86,102 @@ const Header = () => {
   return (
     <>
       <header className={headerClasses}>
-        <div className="xrack-container px-4 flex justify-between items-center max-w-6xl mx-auto">
-          <div className="flex items-center">
-            <Link to="/">
-              <img 
-                src="/lovable-uploads/28d16ee1-5886-47c2-a5e8-505125285ab3.png" 
-                alt="XRack Logo" 
-                className="h-12"
-              />
-            </Link>
-          </div>
-          
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/" className={`${textColor} ${hoverColor} transition-colors`}>Home</Link>
-            
-            
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className={`bg-transparent hover:bg-transparent/20 focus:bg-transparent/20 data-[state=open]:bg-transparent/20 ${textColor}`}>
-                    Categorias
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-white/95 backdrop-blur-xl p-8 rounded-2xl min-w-[400px] shadow-2xl border border-gray-200/50">
-                    <div className="space-y-6">
-                      <div className="group">
-                        <Link 
-                          to="/categorias?filter=travessas" 
-                          className="flex items-center justify-between p-4 rounded-xl bg-gray-50/80 border border-gray-200/50 hover:border-xrack-red/30 hover:bg-xrack-red/5 transition-all duration-300 hover:shadow-lg hover:shadow-xrack-red/10"
-                        >
-                          <div>
-                            <h3 className="font-bold text-gray-900 text-lg mb-1">Travessas</h3>
-                            <p className="text-gray-600 text-sm">Sistemas de fixação para teto</p>
-                          </div>
-                          <div className="w-2 h-2 rounded-full bg-xrack-red opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </Link>
+        <div className={cn(
+          "w-full max-w-6xl mx-auto",
+          scrolled ? "px-4 md:px-8" : "px-4 md:px-8"
+        )}>
+          <div className={cn(
+            scrolled ? "flex items-center justify-between" : "grid grid-cols-[auto_1fr_auto] items-center gap-6"
+          )}>
+            {/* Left: Logo */}
+            <div className="flex items-center">
+              <Link to="/">
+                <img 
+                  src="/lovable-uploads/28d16ee1-5886-47c2-a5e8-505125285ab3.png" 
+                  alt="XRack Logo" 
+                  className="h-12"
+                />
+              </Link>
+            </div>
+
+            {/* Center: Nav - always perfectly centered on desktop */}
+            <nav className="hidden lg:flex items-center justify-center space-x-6">
+              <Link to="/" className={`${textColor} ${hoverColor} transition-colors`}>Home</Link>
+              
+              
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className={`bg-transparent hover:bg-transparent/20 focus:bg-transparent/20 data-[state=open]:bg-transparent/20 ${textColor}`}>
+                      Categorias
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="bg-white/95 backdrop-blur-xl p-8 rounded-2xl min-w-[400px] shadow-2xl border border-gray-200/50">
+                      <div className="space-y-6">
+                        <div className="group">
+                          <Link 
+                            to="/categorias?filter=travessas" 
+                            className="flex items-center justify-between p-4 rounded-xl bg-gray-50/80 border border-gray-200/50 hover:border-xrack-red/30 hover:bg-xrack-red/5 transition-all duration-300 hover:shadow-lg hover:shadow-xrack-red/10"
+                          >
+                            <div>
+                              <h3 className="font-bold text-gray-900 text-lg mb-1">Travessas</h3>
+                              <p className="text-gray-600 text-sm">Sistemas de fixação para teto</p>
+                            </div>
+                            <div className="w-2 h-2 rounded-full bg-xrack-red opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </Link>
+                        </div>
+                        
+                        <div className="group">
+                          <Link 
+                            to="/categorias?filter=bagageiros" 
+                            className="flex items-center justify-between p-4 rounded-xl bg-gray-50/80 border border-gray-200/50 hover:border-xrack-red/30 hover:bg-xrack-red/5 transition-all duration-300 hover:shadow-lg hover:shadow-xrack-red/10"
+                          >
+                            <div>
+                              <h3 className="font-bold text-gray-900 text-lg mb-1">Bagageiros</h3>
+                              <p className="text-gray-600 text-sm">Compartimentos de carga</p>
+                            </div>
+                            <div className="w-2 h-2 rounded-full bg-xrack-red opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          </Link>
+                        </div>
                       </div>
                       
-                      <div className="group">
+                      <div className="mt-8 pt-6 border-t border-gray-200/50">
                         <Link 
-                          to="/categorias?filter=bagageiros" 
-                          className="flex items-center justify-between p-4 rounded-xl bg-gray-50/80 border border-gray-200/50 hover:border-xrack-red/30 hover:bg-xrack-red/5 transition-all duration-300 hover:shadow-lg hover:shadow-xrack-red/10"
+                          to="/categorias" 
+                          className="w-full inline-flex items-center justify-center bg-gradient-to-r from-xrack-red to-red-600 text-white px-6 py-3 rounded-xl hover:from-red-600 hover:to-xrack-red transition-all duration-300 font-medium shadow-lg hover:shadow-xrack-red/25"
                         >
-                          <div>
-                            <h3 className="font-bold text-gray-900 text-lg mb-1">Bagageiros</h3>
-                            <p className="text-gray-600 text-sm">Compartimentos de carga</p>
-                          </div>
-                          <div className="w-2 h-2 rounded-full bg-xrack-red opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          Ver Todos os Produtos
                         </Link>
                       </div>
-                    </div>
-                    
-                    <div className="mt-8 pt-6 border-t border-gray-200/50">
-                      <Link 
-                        to="/categorias" 
-                        className="w-full inline-flex items-center justify-center bg-gradient-to-r from-xrack-red to-red-600 text-white px-6 py-3 rounded-xl hover:from-red-600 hover:to-xrack-red transition-all duration-300 font-medium shadow-lg hover:shadow-xrack-red/25"
-                      >
-                        Ver Todos os Produtos
-                      </Link>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            
-            <button onClick={() => handleNavClick('sobre')} className={`${textColor} ${hoverColor} transition-colors`}>Sobre</button>
-            <button onClick={() => handleNavClick('diferenciais')} className={`${textColor} ${hoverColor} transition-colors`}>Diferenciais</button>
-            <button onClick={() => handleNavClick('depoimentos')} className={`${textColor} ${hoverColor} transition-colors`}>Depoimentos</button>
-            <button onClick={() => handleNavClick('parceiros')} className={`${textColor} ${hoverColor} transition-colors`}>Programa B2B</button>
-            <button onClick={() => handleNavClick('contato')} className={`${textColor} ${hoverColor} transition-colors`}>Contato</button>
-            <Link 
-              to="/verificar-compatibilidade" 
-              className="btn-xrack glow-xrack-red text-sm px-4 py-2 rounded-md inline-flex items-center"
-            >
-              <Search size={16} className="mr-2" />
-              Verificar Compatibilidade
-            </Link>
-          </nav>
-          
-          <div className="md:hidden">
-            <button 
-              onClick={toggleMenu} 
-              className={`${textColor} z-50 relative`}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              
+              <button onClick={() => handleNavClick('sobre')} className={`${textColor} ${hoverColor} transition-colors`}>Sobre</button>
+              <button onClick={() => handleNavClick('diferenciais')} className={`${textColor} ${hoverColor} transition-colors`}>Diferenciais</button>
+              <button onClick={() => handleNavClick('depoimentos')} className={`${textColor} ${hoverColor} transition-colors`}>Depoimentos</button>
+              <button onClick={() => handleNavClick('parceiros')} className={`${textColor} ${hoverColor} transition-colors`}>Programa B2B</button>
+              <button onClick={() => handleNavClick('contato')} className={`${textColor} ${hoverColor} transition-colors`}>Contato</button>
+            </nav>
+
+            {/* Right: CTA on desktop + menu on mobile/tablet */}
+            <div className="flex items-center justify-end gap-3">
+              <Link 
+                to="/verificar-compatibilidade" 
+                className="hidden lg:inline-flex btn-xrack glow-xrack-red text-sm px-3 py-2 rounded-md items-center whitespace-nowrap"
+              >
+                <Search size={16} className="mr-1" />
+                <span className="hidden xl:inline">Verificar Compatibilidade</span>
+                <span className="xl:hidden">Compatibilidade</span>
+              </Link>
+              <button 
+                onClick={toggleMenu} 
+                className={`${textColor} z-50 relative lg:hidden`}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -188,25 +199,20 @@ const Header = () => {
           
           <div className="flex flex-col items-center space-y-8 py-24 px-6 text-center" onClick={(e) => e.stopPropagation()}>
             <Link to="/" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Home</Link>
-            <Link to="/verificar-compatibilidade" className="text-white text-xl hover:text-xrack-red transition-colors flex items-center" onClick={closeMenu}>
-              <Search size={20} className="mr-2" />
-              Verificar Compatibilidade
-            </Link>
             <Link to="/categorias" className="text-white text-xl hover:text-xrack-red transition-colors" onClick={closeMenu}>Categorias</Link>
             <button onClick={() => { handleNavClick('sobre'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Sobre</button>
             <button onClick={() => { handleNavClick('diferenciais'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Diferenciais</button>
             <button onClick={() => { handleNavClick('depoimentos'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Depoimentos</button>
             <button onClick={() => { handleNavClick('parceiros'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Programa B2B</button>
             <button onClick={() => { handleNavClick('contato'); closeMenu(); }} className="text-white text-xl hover:text-xrack-red transition-colors">Contato</button>
-            <a 
-              href="https://wa.me/5511910201100" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn-xrack w-full text-center mt-8 max-w-xs"
+            <Link 
+              to="/verificar-compatibilidade" 
+              className="btn-xrack glow-xrack-red text-sm px-4 py-2 rounded-md inline-flex items-center" 
               onClick={closeMenu}
             >
-              Fale com um Consultor
-            </a>
+              <Search size={16} className="mr-2" />
+              Verificar Compatibilidade
+            </Link>
           </div>
         </div>
       )}

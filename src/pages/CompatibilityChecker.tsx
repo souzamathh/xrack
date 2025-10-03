@@ -58,8 +58,8 @@ const travessas = [
     category: "travessas"
   },
   {
-    id: "way",
-    name: "Way",
+    id: "uno-way",
+    name: "Uno Way",
     description: "Travessa especial para modelos específicos com design único.",
     image: "/lovable-uploads/a0d5274a-0299-457b-821a-4c1e90395898.png",
     category: "travessas"
@@ -165,16 +165,12 @@ const CompatibilityChecker = () => {
       const yearNumber = parseInt(carYear, 10);
       const compatibleProductTypes = checkUnifiedVehicleCompatibility(carBrand, carModel, yearNumber);
       
-      // Check if this is Fiat Uno Way - redirect to product page
-      if (carBrand.toLowerCase() === 'fiat' && carModel.toLowerCase() === 'uno way') {
-        window.location.href = '/produtos/travessas/uno-way';
-        return;
-      }
-      
       const compatibleProducts = travessas.filter(product => {
-        // Handle "Way" -> "way" mapping
-        const productId = compatibleProductTypes.includes('Way') ? 'way' : product.id;
-        return compatibleProductTypes.includes(product.id) || compatibleProductTypes.includes('Way');
+        // Handle "Way" -> "uno-way" mapping
+        if (compatibleProductTypes.includes('Way') && product.id === 'uno-way') {
+          return true;
+        }
+        return compatibleProductTypes.includes(product.id);
       });
 
       setSearchResults(compatibleProducts);
@@ -199,7 +195,7 @@ const CompatibilityChecker = () => {
         <main className="flex-grow pt-32">
           {/* Hero Section */}
           <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
-            <div className="xrack-container text-center">
+            <div className="xrack-container px-4 md:px-4 text-center">
               <div className="flex items-center justify-center mb-6">
                 <Car className="mr-4 text-xrack-red" size={48} />
                 <h1 className="text-4xl md:text-5xl font-bold">
@@ -215,7 +211,7 @@ const CompatibilityChecker = () => {
 
           {/* Search Form */}
           <section className="py-16 bg-gray-50">
-            <div className="xrack-container">
+            <div className="xrack-container px-4 md:px-4">
               <div className="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
                 <h2 className="text-2xl font-bold mb-8 text-center text-gray-800">
                   Selecione seu Veículo
@@ -302,7 +298,7 @@ const CompatibilityChecker = () => {
           {/* Search Results */}
           {hasSearched && (
             <section className="py-16">
-              <div className="xrack-container">
+              <div className="xrack-container px-4 md:px-4">
                 {searchResults.length > 0 ? (
                   <>
                     <div className="text-center mb-12">
@@ -317,7 +313,7 @@ const CompatibilityChecker = () => {
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                       {searchResults.map((product) => (
                         <ProductCard key={product.id} product={product} />
                       ))}
@@ -351,8 +347,8 @@ const CompatibilityChecker = () => {
                     Quem viu este produto também comprou
                   </h2>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {bagageiros.map((product) => (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {[...bagageiros].sort(() => Math.random() - 0.5).map((product) => (
                       <ProductCard key={product.id} product={product} />
                     ))}
                   </div>

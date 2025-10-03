@@ -4,7 +4,7 @@ import { AnimateOnScroll } from '@/utils/ScrollAnimationObserver';
 
 const About = () => {
   return (
-    <section id="sobre" className="py-16">
+    <section id="sobre" className="py-16 px-4 md:px-0">
       <div className="xrack-container">
         <AnimateOnScroll animation="fade-up">
           <h2 className="section-title">Sobre a XRack</h2>

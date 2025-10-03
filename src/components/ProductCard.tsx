@@ -53,8 +53,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = "" }) =>
         'silver': "/lovable-uploads/5c131f44-e3f3-4a2f-8739-ecb95b4e6842.png",
         'graphite': "/lovable-uploads/3685848f-39f6-4bf5-926a-4120e4509509.png"
       },
-      // Travessas Way
+      // Travessas Way e Uno Way
       'way': {
+        'black': "/lovable-uploads/a0d5274a-0299-457b-821a-4c1e90395898.png",
+        'silver': "/lovable-uploads/a3369dab-60f9-44a7-9207-806ebb627bd2.png",
+        'graphite': "/lovable-uploads/uno-way-grafite-1.png"
+      },
+      'uno-way': {
         'black': "/lovable-uploads/a0d5274a-0299-457b-821a-4c1e90395898.png",
         'silver': "/lovable-uploads/a3369dab-60f9-44a7-9207-806ebb627bd2.png",
         'graphite': "/lovable-uploads/uno-way-grafite-1.png"
@@ -81,21 +86,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = "" }) =>
   const currentImage = getImageByColor(product.id, selectedColor);
 
   return (
-    <div className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in h-[400px] flex flex-col ${className}`}>
+    <div className={`bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in h-[280px] sm:h-[320px] md:h-[400px] flex flex-col ${className}`}>
       <Link to={`/produtos/${product.category}/${product.id}`}>
-        <div className="h-32 sm:h-36 md:h-48 overflow-hidden flex items-center justify-center p-4">
+        <div className="h-24 sm:h-28 md:h-40 lg:h-48 overflow-hidden flex items-center justify-center p-2 sm:p-3 md:p-4">
           <img
             src={currentImage}
             alt={`${product.category === 'travessas' ? 'Travessa' : 'Bagageiro'} ${product.name}`}
             className="w-full h-full object-contain transition-transform duration-500 hover:scale-110"
-            style={{ padding: '8px' }}
+            style={{ padding: '4px' }}
           />
         </div>
       </Link>
       
-      <div className="p-4 md:p-6 flex flex-col flex-1">
+      <div className="p-2 sm:p-3 md:p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-2">
-          <h3 className="text-lg md:text-xl font-bold flex-1">{product.name}</h3>
+          <h3 className="text-base sm:text-lg md:text-xl font-bold flex-1">{product.name}</h3>
           <ColorSelector 
             productId={product.id}
             selectedColor={selectedColor}
@@ -104,10 +109,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, className = "" }) =>
           />
         </div>
         
-        <p className="text-gray-700 text-sm md:text-base mb-2 line-clamp-3">{product.description}</p>
+        <p className="text-gray-700 text-xs sm:text-sm md:text-base mb-1 line-clamp-2 sm:line-clamp-3">{product.description}</p>
         
         {(product.category === 'bagageiros' && (product.size || product.dimensions)) && (
-          <p className="text-gray-700 text-xs md:text-sm">
+          <p className="text-gray-700 text-xs md:text-sm mb-1">
             <strong>Dimensões:</strong> {product.size || product.dimensions}
           </p>
         )}

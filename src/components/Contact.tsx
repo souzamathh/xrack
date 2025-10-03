@@ -6,7 +6,7 @@ import { AnimateOnScroll } from '@/utils/ScrollAnimationObserver';
 const Contact = () => {
   return (
     <section id="contato" className="xrack-section bg-gray-100">
-      <div className="xrack-container">
+      <div className="xrack-container px-4 md:px-8">
         <AnimateOnScroll animation="fade-up">
           <h2 className="section-title">Entre em Contato</h2>
           <p className="text-lg mb-12 max-w-4xl">

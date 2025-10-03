@@ -110,7 +110,7 @@
 
 @layer components {
   .xrack-section {
-    @apply py-16 px-4 md:px-8 lg:px-16;
+    @apply py-16 md:px-8 lg:px-16;
   }
   
   .xrack-container {
@@ -349,6 +349,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  /* Mobile spacing improvements */
+  @media (max-width: 768px) {
+    .xrack-section {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    
+    .section-spacing {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   /* Hide scrollbar for horizontal scroll */
