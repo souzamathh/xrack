@@ -246,7 +246,7 @@ const InfiniteProductCarousel = ({ products, title }: InfiniteCarouselProps) => 
       <h2 className="section-title">{title}</h2>
       <p className="text-lg mb-12 max-w-4xl">
         {title === "Travessas" 
-          ? "Produtos de alta qualidade desenvolvidos para atender às diversas necessidades do mercado B2B."
+          ? "Produtos de alta qualidade desenvolvidos para atender às diversas necessidades do mercado."
           : "Opções versáteis para diferentes tipos de veículos e necessidades de carga."
         }
       </p>

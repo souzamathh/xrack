@@ -474,7 +474,7 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
           return (
             <>
               <p className="mb-4">
-                Não é plástico. Todo o conjunto de ponteiras e perfis são fabricados 100% em alumínio de alta resistência, garantindo durabilidade e segurança para suas viagens.
+                Todo o conjunto de ponteiras e perfis são fabricados 100% em alumínio de alta resistência, garantindo durabilidade e segurança para suas viagens.
               </p>
               <h3 className="text-xl font-bold mb-2">Aplicação</h3>
               <ul className="list-disc pl-5 mb-4">
@@ -485,13 +485,12 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
               <p className="mb-4">
                 Seu carro foi feito para grandes momentos, e com o Rack de Teto Travessa XRack, você aproveita ainda mais o espaço do seu carro. Ideal para transportar cargas de até 45 kg, esse rack permite que você leve bagagens extras, malas, suportes de bicicleta e outros acessórios com total segurança.
               </p>
-              <h3 className="text-xl font-bold mb-2">Especificações Técnicas</h3>
+              <h3 className="text-xl font-bold mb-2">Características</h3>
               <ul className="list-disc pl-5 mb-4">
                 <li>Modelo transversal para fixação nas longarinas</li>
                 <li>Perfis de alumínio de alta resistência e leveza</li>
-                <li>Ponteiras de alumínio, sem plástico, garantindo maior durabilidade</li>
+                <li>Ponteiras de alumínio garantindo maior durabilidade</li>
                 <li>Acabamento premium com pintura eletrostática, proporcionando resistência contra desgastes</li>
-                <li>Suporta até 45 kg de carga bem distribuída</li>
               </ul>
             </>
           );
@@ -1127,7 +1126,7 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
               </li>
               <li className="flex items-start">
                 <Check className="text-green-500 mr-2 mt-1 flex-shrink-0" size={18} />
-                <span>Garantia de 1 ano</span>
+                <span>Garantia de 30 dias</span>
               </li>
             </ul>
           </div>
@@ -1147,7 +1146,7 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
             </div>
             <div className="flex items-center">
               <Shield className="text-xrack-red mr-2" size={20} />
-              <span className="text-sm">Garantia de 1 ano</span>
+              <span className="text-sm">Garantia de 30 dias</span>
             </div>
           </div>
         </div>

@@ -305,7 +305,7 @@ const CompatibilityChecker = () => {
                       <div className="flex items-center justify-center mb-4">
                         <CheckCircle className="text-green-500 mr-3" size={32} />
                         <h2 className="text-3xl font-bold text-gray-800">
-                          Produtos Compatíveis Encontrados
+                          Produtos Compatíveis
                         </h2>
                       </div>
                       <p className="text-lg text-gray-600">
