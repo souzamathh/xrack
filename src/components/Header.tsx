@@ -178,7 +178,7 @@ const Header = () => {
                 onClick={toggleMenu} 
                 className={cn(
                   `${textColor} z-50 relative lg:hidden`,
-                  !scrolled && "mr-4"
+                  !scrolled && "mr-2"
                 )}
                 aria-label="Toggle menu"
               >
