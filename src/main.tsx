@@ -14,4 +14,7 @@ root.render(
     <App />
     <SpeedInsights />
   </>
-);
+)
+
+;
+
