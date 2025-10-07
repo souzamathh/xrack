@@ -425,13 +425,13 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
   const getProductTitle = () => {
     if (productCategory === 'travessas') {
       switch (productId) {
-        case 'smart': return 'Travessa Larga Rack de Teto Smart';
-        case 'style': return 'Travessa Larga de Teto Style (100% Alumínio)';
-        case 'slim': return 'Kit Par de Travessas Rack de Teto Slim';
-        case 'uno-way': return 'Par de Rack de Teto Travessa Fiat Uno Way';
-        case 'locker': return 'Rack de Teto Travessa Locker';
-        case 'tubular': return 'Travessa De Teto Tubular Rack Bagageiro';
-        default: return 'Travessa de Teto';
+        case 'smart': return 'Travessa Rack de Teto Smart';
+        case 'style': return 'Travessa Rack de Teto Style';
+        case 'slim': return 'Travessa Rack de Teto Slim';
+        case 'uno-way': return 'Travessa Rack de Teto Fiat Uno Way';
+        case 'locker': return 'Travessa Rack de Teto Locker';
+        case 'tubular': return 'Travessa Rack de Teto Tubular';
+        default: return 'Travessa Rack de Teto';
       }
     } else if (productCategory === 'bagageiros') {
       switch (productId) {
@@ -441,20 +441,20 @@ const ProductDetailContent: React.FC<ProductDetailContentProps> = ({ category, i
         case 'gradeado-511-127x96-preto': return selectedColor === 'silver' ? 'Bagageiro Maleiro Gradeado de Teto 511' : 'Bagageiro Maleiro Gradeado de Teto 511';
         case 'gradeado-514-127x96-preto': 
           if (selectedSize === '160x110') {
-            return selectedColor === 'silver' ? 'Bagageiro Maleiro Gradeado de Teto 514 — 160 x 110 cm — Prata' : 'Bagageiro Maleiro Gradeado de Teto 514 — 160 x 110 cm — Preto';
+            return selectedColor === 'silver' ? 'Bagageiro Maleiro Gradeado de Teto 514' : 'Bagageiro Maleiro Gradeado de Teto 514';
           }
           return 'Bagageiro Maleiro Gradeado de Teto 514';
         case 'gradeado-539-96x90-preto': 
           if (selectedSize === '127x96') {
-            return selectedColor === 'silver' ? 'Bagageiro Maleiro Gradeado de Teto 539 — 127 x 96 cm — Prata' : 'Bagageiro Maleiro Gradeado de Teto 539 — 127 x 96 cm — Preto';
+            return selectedColor === 'silver' ? 'Bagageiro Maleiro Gradeado de Teto 539' : 'Bagageiro Maleiro Gradeado de Teto 539';
           } else if (selectedSize === '160x110') {
-            return selectedColor === 'silver' ? 'Bagageiro Maleiro Gradeado de Teto 539 — 160 x 110 cm — Prata' : 'Bagageiro Maleiro Gradeado de Teto 539 — 160 x 110 cm — Preto';
+            return selectedColor === 'silver' ? 'Bagageiro Maleiro Gradeado de Teto 539' : 'Bagageiro Maleiro Gradeado de Teto 539';
           }
-          return selectedColor === 'silver' ? '539 — 96 x 90 cm — Prata' : 'Bagageiro Maleiro Gradeado de Teto 539';
+          return selectedColor === 'silver' ? 'Bagageiro Maleiro Gradeado de Teto 539' : 'Bagageiro Maleiro Gradeado de Teto 539';
         case 'gradeado-544-127x96-preto': return 'Bagageiro Maleiro Gradeado de Teto 544';
-        case 'gradeado-548-127x96-preto': return 'Bagageiro Maleiro Gradeado de Teto 548 (127 x 96 cm)';
-        case 'gradeado-d52-132x104-preto': return 'Bagageiro Maleiro Gradeado de Teto D-52 (132 x 104 cm)';
-        case 'gradeado-d59-127x96-preto': return 'Bagageiro Maleiro Gradeado de Teto D-59 (127 x 96 cm)';
+        case 'gradeado-548-127x96-preto': return 'Bagageiro Maleiro Gradeado de Teto 548';
+        case 'gradeado-d52-132x104-preto': return 'Bagageiro Maleiro Gradeado de Teto D-52';
+        case 'gradeado-d59-127x96-preto': return 'Bagageiro Maleiro Gradeado de Teto D-59';
         case 'gradeado-p': return 'Bagageiro Maleiro Gradeado de Teto P (97 × 81 × 17 cm)';
         case 'gradeado-m': return 'Bagageiro Maleiro Gradeado de Teto M (100 × 80 × 12 cm)';
         case 'gradeado-g': return 'Bagageiro Maleiro Gradeado de Teto G (110 × 90 × 11 cm)';
