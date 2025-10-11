@@ -68,7 +68,7 @@ const Partners = () => {
                 rel="noopener noreferrer" 
                 className="btn-xrack hover:scale-105 transition-all"
               >
-                Garanta sua Vaga como Parceiro Estratégico
+                Ser um Parceiro Estratégico
               </a>
             </div>
           </AnimateOnScroll>

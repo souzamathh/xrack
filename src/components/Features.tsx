@@ -72,11 +72,7 @@ const Features = () => {
                 <li className="flex items-center gap-2">
                   <FileCheck size={18} className="text-xrack-red" />
                   <span>Carga máxima dentro da capacidade do veículo</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <FileCheck size={18} className="text-xrack-red" />
-                  <span>Altura máxima regulamentada de 50 cm</span>
-                </li>
+                </li>                
                 <li className="flex items-center gap-2">
                   <FileCheck size={18} className="text-xrack-red" />
                   <span>Testados em laboratório para resistência e segurança</span>

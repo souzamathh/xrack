@@ -6,7 +6,7 @@ const travessas = [
   {
     id: 'smart',
     name: "Smart",
-    description: "Travessa Larga Rack de Teto Bagageiro XRack – Segurança, Resistência e Design Premium",
+    description: "Travessa Larga Rack de Teto Bagageiro – Segurança, Resistência e Design Premium",
     image: "/lovable-uploads/5f46fb45-b668-4467-9d06-a57830b4a821.png", // Atualizado: 1-Preto.png Smart
     category: "travessas"
   },
@@ -51,7 +51,7 @@ const bagageiros = [
   {
     id: 'gradeado-501-3-110x90-preto',
     name: 'Gradeado 501-3',
-    description: 'Gradeado 501-3 com formato retangular, ideal para bagageiros de médio porte. Construção robusta e acabamento premium',
+    description: 'Gradeado com formato retangular, ideal para bagageiros de médio porte. Construção robusta e acabamento premium',
     dimensions: '140 × 100 cm',
     image: '/lovable-uploads/ea232286-bc3d-4d17-aaf3-ef3c5f08a4e1.png',
     category: 'bagageiros'
@@ -60,15 +60,15 @@ const bagageiros = [
     id: 'gradeado-307-c-140x100-preto',
     name: 'Gradeado 307-C',
     description: 'Gradeado premium para bagageiros grandes. Design moderno e funcional',
-    dimensions: '140 × 100 cm',
+    dimensions: '127 x 96 cm, 140 × 100 cm',
     image: '/lovable-uploads/a44e5f48-edbf-4eb3-96ad-1f86da1a9d03.png',
     category: 'bagageiros'
   },
   {
     id: 'gradeado-307-2-96x96-preto',
     name: 'Gradeado 307-2',
-    description: 'Novo gradeado 96x96cm - resistente e durável',
-    dimensions: '96 × 96 × 12 cm',
+    description: 'Novo gradeado - resistente e durável',
+    dimensions: '96 × 96 cm',
     image: '/lovable-uploads/bc8a9f53-598f-443e-a034-446bcf3eafa6.png',
     category: 'bagageiros'
   },
@@ -115,15 +115,15 @@ const bagageiros = [
   {
     id: 'gradeado-511-127x96-preto',
     name: 'Gradeado 511',
-    description: 'Bagageiro gradeado 127x96cm - alta qualidade',
-    dimensions: '127 × 96 × 12 cm',
+    description: 'Bagageiro gradeado - alta qualidade',
+    dimensions: '127 × 96 cm, 160 x 110 cm',
     image: '/lovable-uploads/56860209-742f-4f99-b202-646a1802ee81.png',
     category: 'bagageiros'
   },
   {
     id: 'gradeado-514-127x96-preto',
     name: 'Gradeado 514',
-    description: 'Gradeado 514 premium para transporte seguro. Construção robusta em material resistente com design aerodinâmico',
+    description: 'Gradeado premium para transporte seguro. Construção robusta em material resistente com design aerodinâmico',
     dimensions: '127 × 96 cm, 160 × 110 cm',
     image: '/lovable-uploads/eff89411-167e-49da-9e1e-ef69374bb624.png',
     category: 'bagageiros'
@@ -131,15 +131,15 @@ const bagageiros = [
   {
     id: 'gradeado-539-96x90-preto',
     name: 'Gradeado 539',
-    description: 'Bagageiro gradeado 96x90cm - design compacto',
-    dimensions: '96 × 90 × 12 cm',
+    description: 'Bagageiro gradeado - design compacto',
+    dimensions: '96 × 90 cm, 127 x 96 cm, 160 x 110 cm',
     image: '/lovable-uploads/de4e7a24-e550-4586-bc7b-b4a05b04a8bf.png',
     category: 'bagageiros'
   },
   {
     id: 'gradeado-544-127x96-preto',
     name: 'Gradeado 544',
-    description: 'Gradeado 544 premium para transporte seguro. Design aerodinâmico e construção robusta em material resistente',
+    description: 'Gradeado premium para transporte seguro. Design aerodinâmico e construção robusta em material resistente',
     dimensions: '127 × 96 cm, 160 × 110 cm',
     image: '/lovable-uploads/6ef11061-44fb-4e3d-8371-34ee89465107.png',
     category: 'bagageiros'
@@ -147,7 +147,7 @@ const bagageiros = [
   {
     id: 'gradeado-548-127x96-preto',
     name: 'Gradeado 548',
-    description: 'Gradeado 548 premium para transporte seguro de cargas. Construção robusta em material resistente com design aerodinâmico',
+    description: 'Gradeado premium para transporte seguro de cargas. Construção robusta em material resistente com design aerodinâmico',
     dimensions: '127 × 96 cm',
     image: '/lovable-uploads/4ff6a7e8-1dc5-4c2e-9d65-e058cae27713.png',
     category: 'bagageiros'
@@ -155,7 +155,7 @@ const bagageiros = [
   {
     id: 'gradeado-d52-132x104-preto',
     name: 'Gradeado D-52',
-    description: 'Gradeado D-52 premium para máxima capacidade de carga. Design robusto e funcional com sistema de fixação reforçado',
+    description: 'Gradeado premium para máxima capacidade de carga. Design robusto e funcional com sistema de fixação reforçado',
     dimensions: '132 × 104 cm',
     image: '/lovable-uploads/64d44c0f-82bc-454d-862a-c7c95d23fabb.png',
     category: 'bagageiros'
@@ -163,7 +163,7 @@ const bagageiros = [
   {
     id: 'gradeado-d59-127x96-preto',
     name: 'Gradeado D-59',
-    description: 'Gradeado D-59 premium com design aerodinâmico e construção robusta. Ideal para transporte seguro de cargas com máxima durabilidade',
+    description: 'Gradeado premium com design aerodinâmico e construção robusta. Ideal para transporte seguro de cargas com máxima durabilidade',
     dimensions: '127 × 96 cm',
     image: '/lovable-uploads/559fe3ed-c74d-4558-98ad-a1ff818c9f81.png',
     category: 'bagageiros'
@@ -318,7 +318,7 @@ const ProductGrid = ({ showAll = false }: ProductGridProps) => {
   return (
     <section className="xrack-section bg-gray-100">
       <div className="xrack-container px-4 md:px-4">
-        <h2 className="section-title mb-12">Categorias de Produtos</h2>
+        <h2 className="section-title mb-12">Produtos</h2>
 
         <div className="mb-16">
           <h3 className="text-2xl font-bold mb-6">Travessas de Teto</h3>

@@ -43,7 +43,7 @@ const Contact = () => {
           
           <AnimateOnScroll animation="fade-up" delay={200}>
             <div className="bg-black text-white p-8 rounded-lg h-full flex flex-col">
-              <h3 className="text-2xl font-bold mb-6">Atendimento Corporativo</h3>
+              <h3 className="text-2xl font-bold mb-6">Atendimento</h3>
               
               <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-3">
@@ -82,7 +82,6 @@ const Contact = () => {
               </div>
               
               <div className="mt-auto text-center">
-                <p className="mb-4 text-xl">Precisa de soluções urgentes?</p>
                 <a 
                   href="https://wa.me/5511910201100" 
                   target="_blank" 
@@ -90,7 +89,7 @@ const Contact = () => {
                   className="btn-xrack inline-flex items-center gap-2 hover:scale-105 transition-all"
                 >
                   <MessageSquare size={18} />
-                  Atendimento Prioritário
+                  Entrar em Contato
                 </a>
               </div>
             </div>

@@ -22,7 +22,7 @@ const travessas = [
   {
     id: "smart",
     name: "Smart",
-    description: "Travessa Larga Rack de Teto Bagageiro XRack – Premium, segura e resistente.",
+    description: "Travessa Larga Rack de Teto Bagageiro – Premium, segura e resistente.",
     image: "/lovable-uploads/5f46fb45-b668-4467-9d06-a57830b4a821.png",
     category: "travessas"
   },
@@ -325,7 +325,7 @@ const Products = () => {
             Verificar Compatibilidade
           </Link>
           <p className="text-gray-600 mt-3 text-xs md:text-sm">
-            Encontre o produto ideal para seu veículo
+            Encontre a travessa ideal para seu veículo
           </p>
         </div>
 

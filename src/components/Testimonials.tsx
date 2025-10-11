@@ -168,7 +168,7 @@ const Testimonials = () => {
       <div className="xrack-container px-4 md:px-8">
         <h2 className="section-title">Depoimentos & Casos de Sucesso</h2>
         <p className="text-lg mb-12 max-w-4xl">
-          Veja o que nossos clientes B2B estão dizendo sobre nossas soluções.
+          Veja o que nossos clientes estão dizendo sobre nossas soluções.
         </p>
         
         {renderTestimonials()}
